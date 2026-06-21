@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>稳定入口 · ng体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #fde8cd 0%, #f8d5b0 55%, #f1c59a 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2f2a25;
+        }
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 248, 240, 0.88);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 40px 16px 40px 16px;
+            padding: 2.8rem 2.2rem 3rem;
+            box-shadow: 0 20px 40px -12px rgba(110, 70, 30, 0.25),
+                        0 0 0 1px rgba(255, 220, 180, 0.4);
+            transition: box-shadow 0.2s;
+        }
+        @media (max-width: 540px) {
+            .card {
+                padding: 2rem 1.2rem 2.4rem;
+                border-radius: 28px 10px 28px 10px;
+            }
+        }
+        /* 开场叙事短句 */
+        .opening {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #4f3d2b;
+            border-left: 4px solid #d9995b;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            background: linear-gradient(to right, #f0ddd0, transparent);
+            background-size: 80% 100%;
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+        .opening strong {
+            font-weight: 500;
+            color: #884c2a;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 520;
+            letter-spacing: -0.02em;
+            color: #3e2e1e;
+            margin: 0 0 0.3rem 0;
+            line-height: 1.2;
+            display: inline-block;
+            background: linear-gradient(135deg, #7f5437, #b77b4f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #68553f;
+            margin-bottom: 1.6rem;
+            font-weight: 380;
+            border-bottom: 1px dashed #dbbc9d;
+            padding-bottom: 0.6rem;
+        }
+        .story-text {
+            font-size: 1rem;
+            color: #3a322a;
+            margin-bottom: 1.6rem;
+        }
+        .story-text p {
+            margin-bottom: 0.9rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1.2rem;
+            margin: 2rem 0 2.2rem;
+        }
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+        }
+        .feature-item {
+            background: rgba(238, 215, 190, 0.3);
+            border-radius: 20px 6px 20px 6px;
+            padding: 0.7rem 1rem 0.7rem 1.4rem;
+            font-size: 0.95rem;
+            border: 1px solid #ebcfb4;
+            box-shadow: 0 2px 6px rgba(130, 70, 20, 0.04);
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+        .feature-item::before {
+            content: "▹";
+            color: #b87e54;
+            font-size: 1.2rem;
+            margin-right: 0.2rem;
+        }
+        .feature-item strong {
+            font-weight: 500;
+            color: #6e4a2c;
+        }
+        .link-wrap {
+            background: #efe0d0;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.3rem 0.3rem 0.3rem 1.2rem;
+            margin: 0.5rem 0 1.2rem;
+            box-shadow: 0 3px 8px rgba(150, 90, 40, 0.08);
+            transition: all 0.15s;
+        }
+        .link-wrap a {
+            background: #c0895f;
+            color: #fdf5eb;
+            text-decoration: none;
+            font-weight: 470;
+            font-size: 0.98rem;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, transform 0.1s;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(100, 55, 15, 0.15);
+        }
+        .link-wrap a:hover {
+            background: #a26b3f;
+            transform: scale(1.01);
+        }
+        .link-wrap span {
+            color: #5b4532;
+            font-size: 0.88rem;
+            margin-right: 0.4rem;
+            font-weight: 380;
+        }
+        .closing-note {
+            margin-top: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #ddc4ac;
+            font-size: 0.94rem;
+            color: #5a4737;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .closing-note small {
+            opacity: 0.75;
+            font-size: 0.82rem;
+        }
+        .faq-mini {
+            margin-top: 1.6rem;
+            background: #f7ede2;
+            border-radius: 24px 8px 24px 8px;
+            padding: 1.2rem 1.4rem;
+        }
+        .faq-mini details {
+            margin-bottom: 0.4rem;
+            font-size: 0.92rem;
+            color: #3c332b;
+        }
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 440;
+            color: #7a563a;
+            padding: 0.2rem 0;
+        }
+        .faq-mini summary:hover {
+            color: #9c6d48;
+        }
+        .faq-mini p {
+            margin: 0.3rem 0 0.6rem 1rem;
+            color: #4b3d30;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #dcc1a8;
+            margin: 1.2rem 0 0.2rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="opening">
+        <strong>不止是入口</strong> — 每次进入都像第一次打开。
+    </div>
+
+    <h1>ng体育 · 叙事页面</h1>
+    <div class="subhead">稳定 · 简洁 · 被反复确认的路径</div>
+
+    <div class="story-text">
+        <p>一个页面的意义，往往不是它有多华丽，而是它是否总在那里。<br>
+        当你想快速抵达 <a href="https://m-web-ngsports.com" style="color:#a87149; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-weight: 450;">ng体育</a> 时，不需要记忆复杂的地址，也不需要翻找书签。<br>
+        这看起来是小事，却是许多人每天都会重复的动作。</p>
+        <p>我们把这个页面当作一个安静的枢纽：没有弹窗、没有干扰，只有你需要的那个名字。它不替你做决定，只负责把路铺好。</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item"><strong>直达</strong> · 单一点击，无中间跳转</div>
+        <div class="feature-item"><strong>轻量</strong> · 页面结构精简，加载直觉</div>
+        <div class="feature-item"><strong>环境提示</strong> · 确认当前网络与浏览器状态</div>
+        <div class="feature-item"><strong>入口稳定</strong> · 域名长期维护，路径固定</div>
+    </div>
+
+    <div class="link-wrap">
+        <span>→ 直接前往</span>
+        <a href="https://m-web-ngsports.com">ng体育</a>
+    </div>
+    <p style="font-size: 0.9rem; color: #6d5643; margin-top: -0.2rem; margin-bottom: 0.8rem;">
+        (适用于移动端与桌面端，页面本身仅作指引)
+    </p>
+
+    <div class="faq-mini">
+        <details>
+            <summary>为什么需要一个专门的介绍页？</summary>
+            <p>这个页面聚焦于说明与引导：当你需要确认链接、了解服务的背景或核对入口时，它提供一份简洁的摘要。不取代任何功能，只扮演一个温和的路标。</p>
+        </details>
+        <details>
+            <summary>如何确认当前访问的是官方路径？</summary>
+            <p>请核对浏览器地址栏中的域名是否为 <code>m-web-ngsports.com</code>。本页面上出现的所有链接均指向同一基域。若发现地址异常，建议停止操作并核对来源。</p>
+        </details>
+        <details>
+            <summary>页面会收集信息吗？</summary>
+            <p>此页面为纯介绍页，不部署追踪脚本、不写入 Cookie，仅包含基础的样式与结构。你的浏览行为不受监控。</p>
+        </details>
+    </div>
+
+    <div class="closing-note">
+        <span>— 持续可用，如常</span>
+        <small>种子参考 · 稳定迭代</small>
+    </div>
+    <hr>
+    <div style="text-align: right; font-size: 0.75rem; color: #765d48; opacity: 0.5; margin-top: 0.3rem;">
+        版本 · 叙事型入口
+    </div>
+</div>
+</body>
+</html>
