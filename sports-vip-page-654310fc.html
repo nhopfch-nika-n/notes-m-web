@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fce9d8 0%, #fadbc5 35%, #f5cca8 70%, #f2bf92 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrapper {
+            max-width: 880px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(110, 60, 30, 0.3), 0 8px 16px -6px rgba(0, 0, 0, 0.05);
+            padding: 2.8rem 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .page-wrapper {
+                padding: 2rem 1.4rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        /* header / hero area */
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #4f2f1c;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-title small {
+            font-size: 1rem;
+            font-weight: 350;
+            color: #7b5a40;
+            letter-spacing: 0.5px;
+            background: rgba(255, 235, 215, 0.6);
+            padding: 0.1rem 0.9rem;
+            border-radius: 40px;
+            margin-left: 0.4rem;
+        }
+
+        .intro-tag {
+            display: inline-block;
+            background: #dbb594;
+            color: #2f1e12;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 0.4px;
+            margin: 0.8rem 0 1.6rem 0;
+        }
+
+        .site-desc {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2d221b;
+            background: rgba(255, 245, 235, 0.5);
+            padding: 1.6rem 1.8rem;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(210, 160, 120, 0.15);
+        }
+
+        .site-desc a {
+            color: #934e2a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #e8c2a8;
+            transition: border-color 0.2s, background 0.2s;
+            padding: 0 0.1rem;
+        }
+
+        .site-desc a:hover {
+            background: #f7e2d2;
+            border-bottom-color: #b6734e;
+        }
+
+        /* card grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.4rem 0 1.8rem 0;
+        }
+
+        @media (max-width: 580px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem 1.5rem 1.8rem;
+            box-shadow: 0 8px 14px -8px rgba(70, 40, 20, 0.08), 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+            border: 1px solid #f2e2d4;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 24px -12px rgba(100, 60, 30, 0.18);
+            border-color: #e6ccb8;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4e321f;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card p {
+            color: #3d2c20;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .card .emoji-badge {
+            font-size: 1.3rem;
+            margin-right: 0.2rem;
+        }
+
+        .tip-block {
+            background: #f8ede4;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.2rem 0;
+            border-left: 6px solid #c99270;
+        }
+
+        .tip-block p {
+            color: #37261b;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.8rem 0 0.6rem 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 248, 242, 0.5);
+            border-radius: 20px;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #e6cfbe;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #4f321e;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item span {
+            color: #3a2a1e;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .footer-note {
+            margin-top: 2.6rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dcc5b4;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5f4837;
+        }
+
+        .footer-note a {
+            color: #6f3f25;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cfaa91;
+            font-weight: 450;
+        }
+
+        .footer-note a:hover {
+            color: #3d261a;
+            text-decoration-color: #a87050;
+        }
+
+        .highlight-link-sentence {
+            background: #fcf3eb;
+            border-radius: 60px;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            margin: 0.8rem 0 0.2rem;
+            font-size: 1rem;
+        }
+
+        .highlight-link-sentence a {
+            color: #8a4526;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #e3bba6;
+            transition: border 0.2s;
+        }
+
+        .highlight-link-sentence a:hover {
+            border-bottom-color: #a55d38;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5cfbe;
+            margin: 1.6rem 0 0.8rem 0;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="hero-title">
+            爱游戏
+            <small>· 站点介绍</small>
+        </div>
+        <div class="intro-tag">有温度 · 可信任</div>
+
+        <div class="site-desc">
+            <p>
+                这里是一个围绕体育与游戏兴趣而搭建的小站，叫 <strong>爱游戏</strong>。
+                很多朋友习惯在休闲时看看赛事、聊聊对战，或者单纯想找一处信息比较集中的地方。
+                站点的初衷就是把这些内容整理起来，提供一个相对清晰的汇总页面。
+                如果你也对这些话题感兴趣，可以直接逛逛 <a href="https://sports-vip-igame.com">爱游戏</a>，
+                页面结构简单，没有多余的干扰。
+            </p>
+        </div>
+
+        <!-- 亮点卡片 -->
+        <div class="feature-grid">
+            <div class="card">
+                <h3><span class="emoji-badge">📘</span> 内容摘要</h3>
+                <p>
+                    站点围绕体育赛事、游戏动态与实用信息展开，分类比较直观。
+                    常见的热门项目、赛程提醒、以及社区里大家常聊的话题都有覆盖。
+                    不用注册也能浏览大部分内容。
+                </p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-badge">🧭</span> 使用建议</h3>
+                <p>
+                    建议使用电脑或平板浏览，页面布局会更舒展；手机端也做了适配。
+                    遇到感兴趣的内容，可以多利用站内关键词查找，信息密度适中。
+                    另外，页面没有自动弹窗，体验比较干净。
+                </p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-badge">🔍</span> 可信说明</h3>
+                <p>
+                    站点运营者保持透明，信息均标注来源或参考依据。
+                    没有隐藏收费或诱导订阅，链接跳转也以常见平台为主。
+                    如果你发现任何存疑内容，可以通过页面提供的联系方式反馈。
+                </p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-badge">☕</span> 适用场景</h3>
+                <p>
+                    适合赛前快速查资料、赛后浏览讨论，或者纯粹想找些游戏资讯放松。
+                    也适合偶尔想看点不同视角内容的朋友，作为补充参考。
+                </p>
+            </div>
+        </div>
+
+        <!-- 使用提示块 -->
+        <div class="tip-block">
+            <p>
+                💡 小提示：<strong>爱游戏</strong> 并不追求大而全，而是把常见的信息点梳理清楚。
+                如果你初次到访，不妨先看看首页的导航分区，再从自己最熟悉的话题入手。
+                网站没有强制推送，所有内容都可以按需翻阅。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 (自然克制) -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <strong>❓ 站点内容更新频率如何？</strong>
+                <span>主要依据赛事节奏和游戏版本节点更新，重大活动前后会补充相关内容。日常保持每周 1-2 次内容维护。</span>
+            </div>
+            <div class="faq-item">
+                <strong>❓ 需要登录或付费吗？</strong>
+                <span>绝大部分浏览都不需要登录。站内没有隐藏付费墙，也没有植入广告联盟，访问体验比较清爽。</span>
+            </div>
+            <div class="faq-item">
+                <strong>❓ 信息可靠吗？</strong>
+                <span>尽可能采用官方或一手信源，并在页面内备注参考。如果发现偏差，欢迎指正，站方会及时核实修正。</span>
+            </div>
+        </div>
+
+        <!-- 自然嵌入链接的句子，文本严格为“爱游戏” -->
+        <hr>
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 1.2rem; margin: 0.6rem 0 0.2rem 0;">
+            <span style="color: #3c2a1d; font-size: 1rem;">📎 你可以在日常浏览中把</span>
+            <span class="highlight-link-sentence">
+                <a href="https://sports-vip-igame.com">爱游戏</a>
+            </span>
+            <span style="color: #3c2a1d; font-size: 1rem;">添加到书签，方便随时回来看看动态。</span>
+        </div>
+        <div style="margin: 1rem 0 0.4rem 0; font-size: 0.98rem; color: #3f2c1e; background: #f9efe8; padding: 0.8rem 1.4rem; border-radius: 60px;">
+            ⚡ 很多朋友把 <a href="https://sports-vip-igame.com" style="color: #753f24; font-weight: 500; text-decoration: underline; text-underline-offset: 3px;">爱游戏</a> 当作赛前闲聊的参考点，页面打开快，没有杂乱弹窗。
+        </div>
+
+        <div class="footer-note">
+            <p>© 爱游戏 · 站点说明页 · 内容仅供参考，不构成任何承诺或引导。</p>
+            <p style="margin-top: 0.6rem; font-size: 0.8rem; opacity: 0.7;">本页为独立介绍，与站内具体内容无关，仅提供客观功能说明。</p>
+        </div>
+    </div>
+</body>
+</html>
