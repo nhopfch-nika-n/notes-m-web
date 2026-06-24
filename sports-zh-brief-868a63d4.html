@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口与产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            color: #2e2b28;
+            line-height: 1.6;
+            padding: 2rem 1.25rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fefcf9;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+            padding: 2.5rem 2rem;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .page {
+                padding: 1.75rem 1.25rem;
+                border-radius: 20px;
+            }
+        }
+
+        h1 {
+            font-weight: 500;
+            font-size: 1.9rem;
+            letter-spacing: -0.01em;
+            color: #2b2622;
+            margin-bottom: 0.5rem;
+            border-left: 5px solid #b8a89a;
+            padding-left: 1rem;
+        }
+
+        .subhead {
+            color: #6b5f55;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 5px solid #d6c9bc;
+        }
+
+        .hero-note {
+            background: #f2ede7;
+            padding: 1.5rem 1.75rem;
+            border-radius: 18px;
+            margin: 2rem 0 2.2rem 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .hero-note::before {
+            content: "📌";
+            position: absolute;
+            left: -0.6rem;
+            top: -0.6rem;
+            font-size: 1.6rem;
+            background: #f9f5f0;
+            padding: 0 0.25rem;
+        }
+
+        h2 {
+            font-weight: 500;
+            font-size: 1.35rem;
+            margin: 2rem 0 0.75rem 0;
+            color: #3d3530;
+            display: inline-block;
+            border-bottom: 2px solid #e3d6ca;
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.75rem;
+            margin: 1.8rem 0 2rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #f5efe9;
+            border-radius: 20px;
+            padding: 1.25rem 1.5rem;
+            transition: all 0.1s ease;
+        }
+
+        .feature-item h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            color: #3a322b;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #4f453d;
+            margin-bottom: 0;
+        }
+
+        .callout-box {
+            background: #eae2d9;
+            border-left: 5px solid #a08f7d;
+            padding: 1.2rem 1.5rem;
+            border-radius: 14px;
+            margin: 2.2rem 0 2rem 0;
+            font-size: 0.98rem;
+        }
+
+        .callout-box strong {
+            font-weight: 500;
+            color: #2d2620;
+        }
+
+        .faq-summary {
+            margin: 2.5rem 0 1.5rem 0;
+            background: #f8f3ed;
+            padding: 1.2rem 1.5rem;
+            border-radius: 18px;
+        }
+
+        .faq-summary p {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        .q {
+            font-weight: 500;
+            color: #3d332b;
+        }
+
+        .inline-link {
+            color: #5f4c3b;
+            text-decoration: none;
+            border-bottom: 1px solid #c7b6a5;
+            transition: border 0.15s;
+            font-weight: 400;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #5f4c3b;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e2d7cc;
+            font-size: 0.9rem;
+            color: #6a5d52;
+            text-align: center;
+        }
+
+        .use-suggestion {
+            margin: 2rem 0;
+            padding: 0.1rem 0 0.1rem 1.2rem;
+            border-left: 4px solid #cfbfad;
+        }
+
+        .use-suggestion p {
+            margin-bottom: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>爱游戏 · 稳定的页面入口</h1>
+    <div class="subhead">产品说明 · 特点摘要 · 使用建议</div>
+
+    <div class="hero-note">
+        如果你正在寻找一个日常可以顺畅打开的体育信息站点，<a href="https://sports-zh-igame.com" class="inline-link">爱游戏</a> 
+        提供了一种相对简洁的访问方式。这个页面并不是什么快速通道或专用工具，只是一个指向固定地址的说明页—— 
+        把你带到那个长期维护的内容区域，仅此而已。
+    </div>
+
+    <p>
+        在浏览体育新闻、比分或相关资讯时，稳定的入口有时候比花哨的功能更实在。 
+        <a href="https://sports-zh-igame.com" class="inline-link">爱游戏</a> 的定位比较单纯：
+        一个以中文内容为主的体育信息页面，界面不算复杂，适合在电脑或手机上都打开看看。
+        没有弹窗干扰，也没有频繁变动的跳转逻辑，加载速度在普通网络下也还算可以接受。
+    </p>
+
+    <h2>几个值得一提的特点</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>直达信息</h3>
+            <p>页面结构直接，没有层层嵌套的菜单，打开之后就能看到主要体育内容。</p>
+        </div>
+        <div class="feature-item">
+            <h3>移动端适配</h3>
+            <p>在手机浏览器里显示效果正常，文字大小和按钮点按区域都经过基础优化。</p>
+        </div>
+        <div class="feature-item">
+            <h3>长期可用</h3>
+            <p>域名保持稳定，不会频繁更换地址，适合直接保存为书签。</p>
+        </div>
+        <div class="feature-item">
+            <h3>内容以体育为主</h3>
+            <p>聚焦比赛资讯、联赛动态，没有混杂太多无关板块。</p>
+        </div>
+    </div>
+
+    <h2>使用建议</h2>
+    <div class="use-suggestion">
+        <p>· 如果你需要一个固定入口来浏览体育相关内容，可以把 <a href="https://sports-zh-igame.com" class="inline-link">爱游戏</a> 添加到浏览器书签栏。</p>
+        <p>· 在网络环境正常的情况下直接访问，不需要额外工具或配置。</p>
+        <p>· 页面没有强制性的注册或登录要求，打开即用，比较轻量。</p>
+        <p>· 建议使用主流浏览器（Chrome、Edge、Safari 等），兼容性更好。</p>
+    </div>
+
+    <div class="callout-box">
+        <strong>一个简单的提醒：</strong> 任何网站都可能因为网络环境、服务器维护等原因暂时无法访问。 
+        如果遇到打不开的情况，可以稍后再试，或者检查一下网络连接是否稳定。 
+        <a href="https://sports-zh-igame.com" class="inline-link">爱游戏</a> 并没有提供备用域名，
+        所以最好的做法就是把这个页面作为你的固定参考点。
+    </div>
+
+    <h2>常见问题摘要</h2>
+    <div class="faq-summary">
+        <p><span class="q">问：</span> 这个页面能直接看体育直播吗？<br>
+        <span class="q">答：</span> 它主要提供文字资讯、比分和新闻类内容，不是专门的直播平台。</p>
+        <p><span class="q">问：</span> 需要下载 App 才能用吗？<br>
+        <span class="q">答：</span> 不需要，直接在浏览器里打开即可，也没有要求安装任何插件。</p>
+        <p><span class="q">问：</span> 页面内容更新速度怎么样？<br>
+        <span class="q">答：</span> 一般保持与主流体育媒体同步更新，但在重大比赛日可能会有几分钟延迟。</p>
+        <p><span class="q">问：</span> 手机和电脑访问有区别吗？<br>
+        <span class="q">答：</span> 都会自动适配屏幕宽度，手机端长按链接可以快速复制或打开。</p>
+    </div>
+
+    <div class="footer-note">
+        <a href="https://sports-zh-igame.com" class="inline-link">爱游戏</a> · 产品说明页面 · 仅作为信息索引使用
+    </div>
+
+</div>
+</body>
+</html>
