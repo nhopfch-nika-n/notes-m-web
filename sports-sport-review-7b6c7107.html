@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1f3a3f;
+            line-height: 1.6;
+            padding: 1.5rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+        /* 网格卡片容器 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0 2.4rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.5rem 1.2rem 1.6rem;
+            box-shadow: 0 4px 10px rgba(0, 70, 80, 0.06);
+            border: 1px solid #e2edf0;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 120, 130, 0.08);
+            transform: translateY(-2px);
+        }
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.4rem;
+            height: 2.4rem;
+            background: #d9edf0;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+            color: #0a5a64;
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #12454e;
+            letter-spacing: 0.01em;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #2b555e;
+            margin-bottom: 0.4rem;
+        }
+        .card .meta {
+            font-size: 0.82rem;
+            color: #64868b;
+            margin-top: 0.5rem;
+            border-top: 1px dashed #cde0e4;
+            padding-top: 0.4rem;
+        }
+        /* 头部和说明区 */
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b4a55;
+            margin-top: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hero-title span {
+            background: #cbe6eb;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #105b65;
+        }
+        .intro-block {
+            background: #e5f2f5;
+            padding: 1.4rem 1.8rem;
+            border-radius: 28px;
+            margin: 1.2rem 0 1.8rem;
+            border-left: 6px solid #2c8d9b;
+        }
+        .intro-block p {
+            font-size: 1.02rem;
+            color: #173f46;
+            max-width: 85%;
+        }
+        .info-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 1.5rem;
+            align-items: stretch;
+        }
+        .info-box {
+            background: #ffffffde;
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem 1.5rem;
+            flex: 1 1 200px;
+            border: 1px solid #d4e7ec;
+            box-shadow: 0 1px 4px rgba(30, 90, 100, 0.04);
+        }
+        .info-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0d535f;
+            border-bottom: 2px solid #badbe1;
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-box li {
+            padding: 0.2rem 0;
+            font-size: 0.94rem;
+            color: #1f4d56;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+        .info-box li::before {
+            content: "▹";
+            color: #3695a3;
+            font-size: 0.9rem;
+            margin-right: 0.2rem;
+        }
+        .tip-area {
+            background: #f0f8fa;
+            border-radius: 30px;
+            padding: 1.3rem 1.8rem;
+            margin: 1.6rem 0 2rem;
+            border: 1px solid #cfe5ea;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .tip-area .tip-label {
+            font-weight: 500;
+            color: #0a5f6b;
+            margin-right: 1rem;
+        }
+        .tip-area .tip-content {
+            color: #1b4952;
+            font-size: 0.96rem;
+            flex: 1;
+        }
+        .faq-mini {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin: 1.8rem 0 2rem;
+        }
+        .faq-item {
+            background: white;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            border-left: 4px solid #3693a0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #104b55;
+            font-size: 0.96rem;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item .a {
+            font-size: 0.88rem;
+            color: #2a5f69;
+        }
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #cfe2e7;
+            font-size: 0.9rem;
+            color: #46727b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+        .footer-note a {
+            color: #0f6a78;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #3f98a6;
+        }
+        .footer-note a:hover {
+            border-bottom: 2px solid #0f6a78;
+        }
+        .inline-link {
+            color: #0b6b7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #94c8d1;
+            transition: border 0.1s;
+        }
+        .inline-link:hover {
+            border-bottom: 2px solid #0b6b7a;
+        }
+        @media (max-width: 540px) {
+            body { padding: 1rem 0.7rem; }
+            .hero-title { font-size: 1.6rem; }
+            .intro-block p { max-width: 100%; }
+            .info-flex { flex-direction: column; }
+            .tip-area { flex-direction: column; gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- 标题区 + 入口标识 -->
+    <div class="hero-title">
+        📚 爱游戏知识库
+        <span>索引</span>
+    </div>
+    
+    <!-- 说明区：从资料整理角度切入 -->
+    <div class="intro-block">
+        <p>本页面向使用者提供关于 <a href="https://sports-sport-igame.com" class="inline-link">爱游戏</a> 的结构化信息索引。所有条目均经过梳理与归类，涵盖平台背景、内容分类以及常见疑问摘要。页面采用卡片与网格布局，便于快速定位所需资料。</p>
+    </div>
+
+    <!-- 网格卡片式目录感布局：主要信息分类 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>资源分类</h3>
+            <p>体育项目 · 赛事数据 · 游戏模式 · 用户指南 · 更新日志</p>
+            <div class="meta">条目量 12+</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🗂️</div>
+            <h3>资料模块</h3>
+            <p>常见术语表 · 规则说明 · 版本变更记录 · 帮助中心索引</p>
+            <div class="meta">维护中</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧭</div>
+            <h3>快速导航</h3>
+            <p>通过主站 <a href="https://sports-sport-igame.com" class="inline-link">爱游戏</a> 可获得完整内容目录及实时资讯。</p>
+            <div class="meta">外部链接</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">📌</div>
+            <h3>标签索引</h3>
+            <p>#运动 #竞技 #排行榜 #规则 #活动</p>
+            <div class="meta">关键词聚合</div>
+        </div>
+    </div>
+
+    <!-- 相关信息区：三个信息块 -->
+    <div class="info-flex">
+        <div class="info-box">
+            <h4>平台特点</h4>
+            <ul>
+                <li>多项目覆盖：足球、篮球、网球等</li>
+                <li>实时数据与历史记录对照</li>
+                <li>界面适配移动端与桌面端</li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <h4>内容来源</h4>
+            <ul>
+                <li>官方规则文档</li>
+                <li>用户反馈汇总</li>
+                <li>赛事公开数据</li>
+                <li>社区指南</li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <h4>场景用途</h4>
+            <ul>
+                <li>查阅运动规则</li>
+                <li>整理个人比赛笔记</li>
+                <li>了解平台功能模块</li>
+                <li>快速检索常见问题</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-area">
+        <span class="tip-label">💡 提示</span>
+        <span class="tip-content">本知识库定期更新，建议搭配主站 <a href="https://sports-sport-igame.com" class="inline-link">爱游戏</a> 使用，以获得最新资料与通知。部分条目仍在整理中。</span>
+    </div>
+
+    <!-- FAQ 摘要（简洁卡片式） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="q">❓ 如何查找特定运动规则？</div>
+            <div class="a">在分类卡片中选择对应项目，或直接访问主站搜索。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 数据多久刷新？</div>
+            <div class="a">核心数据每日同步，具体以平台标注为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 是否支持离线浏览？</div>
+            <div class="a">本页为静态索引，详细内容需联网获取。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 如何反馈遗漏条目？</div>
+            <div class="a">通过主站联系渠道提交建议。</div>
+        </div>
+    </div>
+
+    <!-- 底部信息（相关链接） -->
+    <div class="footer-note">
+        <span>爱游戏 · 资料索引页</span>
+        <span>更多内容请参阅 <a href="https://sports-sport-igame.com">爱游戏</a></span>
+    </div>
+</div>
+</body>
+</html>
